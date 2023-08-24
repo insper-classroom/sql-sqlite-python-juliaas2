@@ -12,9 +12,14 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Liste todos os jogos disponíveis para a plataforma Xbox One. (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+      SELECT * FROM vgsales_pbi WHERE platform='XOne';
      ```
    - **Resultado**
+      ReCore	XOne	2016,0	Action	Microsoft Game Studios	0,06	0,03	0,0	0,1
+      Tom Clancy's The Division	XOne	2016,0	Shooter	Ubisoft	1,2	0,62	0,0	2,01
+      Valentino Rossi: The Game	XOne	2016,0	Racing	Namco Bandai Games	0,0	0,02	0,0	0,02
+      The Technomancer	XOne	2016,0	Role-Playing	Focus Home Interactive	0,01	0,01	0,0	0,02
+      Dead Island Definitive Collection	XOne	2016,0	Action	Deep Silver	0,02	0,02	0,0	0,04
     
 
 
@@ -22,9 +27,14 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Liste todos os jogos do gênero "Ação" que foram lançados após 2010.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+      SELECT * FROM vgsales_pbi WHERE year>2010 AND genre="Action";
      ```
    - **Resultado**
+      Brothers Conflict: Precious Baby	PSV	2017,0	Action	Idea Factory	0,0	0,0	0,01	0,01
+      Lego Star Wars: The Force Awakens	PS4	2016,0	Action	Warner Bros. Interactive Entertainment	0,14	0,32	0,0	0,54
+      Gundam Breaker 3	PS4	2016,0	Action	Namco Bandai Games	0,0	0,0	0,09	0,09
+      Taiko no Tatsujin: Don Don! Mystery Adventure	3DS	2016,0	Action	Namco Bandai Games	0,0	0,0	0,09	0,09
+      ReCore	XOne	2016,0	Action	Microsoft Game Studios	0,06	0,03	0,0	0,1
     
 
 
@@ -32,19 +42,30 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Liste os 5 jogos mais recentes lançados.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+      SELECT * FROM vgsales_pbi ORDER BY year DESC limit 5;
      ```
    - **Resultado**
-    
+    "Imagine: Makeup Artist"	"DS"	"2020,0"	"Simulation"	"Ubisoft"	"0,27"	"0,0"	"0,0"	"0,29"
+    "Phantasy Star Online 2 Episode 4: Deluxe Package"	"PS4"	"2017,0"	"Role-Playing"	"Sega"	"0,0"	"0,0"	"0,03"	"0,03"
+    "Brothers Conflict: Precious Baby"	"PSV"	"2017,0"	"Action"	"Idea Factory"	"0,0"	"0,0"	"0,01"	"0,01"
+    "Phantasy Star Online 2 Episode 4: Deluxe Package"	"PSV"	"2017,0"	"Role-Playing"	"Sega"	"0,0"	"0,0"	"0,01"	"0,01"
+    "Hyakka Hyakurou: Sengoku Ninpoujou"	"PSV"	"2016,0"	"Adventure"	"D3Publisher"	"0,0"	"0,0"	"0,02"	"0,02"
+
 
 
 4. **Jogos mais antigos**:
    - **Enunciado**: Liste os 5 jogos mais antigos.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+      SELECT * FROM vgsales_pbi ORDER BY year ASC limit 5;
      ```
    - **Resultado**
+    "Bridge"	"2600"	"1980,0"	"Misc"	"Activision"	"0,25"	"0,02"	"0,0"	"0,27"
+    "Freeway"	"2600"	"1980,0"	"Action"	"Activision"	"0,32"	"0,02"	"0,0"	"0,34"
+    "Defender"	"2600"	"1980,0"	"Misc"	"Atari"	"0,99"	"0,05"	"0,0"	"1,05"
+    "Kaboom!"	"2600"	"1980,0"	"Misc"	"Activision"	"1,07"	"0,07"	"0,0"	"1,15"
+    "Boxing"	"2600"	"1980,0"	"Fighting"	"Activision"	"0,72"	"0,04"	"0,0"	"0,77"
+
     
 
 
@@ -52,9 +73,13 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Quais são os 3 jogos do gênero "Aventura" com as maiores vendas na América do Norte?  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+      SELECT * FROM vgsales_pbi WHERE genre='Action'ORDER BY na_sales DESC limit 3 ;
      ```
    - **Resultado**
+    "Grand Theft Auto V"	"X360"	"2013,0"	"Action"	"Take-Two Interactive"	"9,63"	"5,31"	"0,06"	"16,38"
+    "Grand Theft Auto: San Andreas"	"PS2"	"2004,0"	"Action"	"Take-Two Interactive"	"9,43"	"0,4"	"0,41"	"20,81"
+    "Grand Theft Auto: Vice City"	"PS2"	"2002,0"	"Action"	"Take-Two Interactive"	"8,41"	"5,49"	"0,47"	"16,15"
+
     
 
 
@@ -63,9 +88,14 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Liste todos os jogos dos gêneros "RPG" ou "Strategy" lançados após 2005.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+      SELECT * FROM vgsales_pbi WHERE genre='Role-Playing' or genre='Strategy' And year > 2005;
      ```
    - **Resultado**
+    Phantasy Star Online 2 Episode 4: Deluxe Package	PS4	2017,0	Role-Playing	Sega	0,0	0,0	0,03	0,03
+    Phantasy Star Online 2 Episode 4: Deluxe Package	PSV	2017,0	Role-Playing	Sega	0,0	0,0	0,01	0,01
+    Persona 5	PS3	2016,0	Role-Playing	Unknown	0,0	0,0	0,1	0,1
+    Caligula	PSV	2016,0	Role-Playing	FuRyu	0,0	0,0	0,05	0,05
+    The Technomancer	XOne	2016,0	Role-Playing	Focus Home Interactive	0,01	0,01	0,0	0,02
     
 
 
